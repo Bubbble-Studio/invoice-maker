@@ -24,7 +24,7 @@ export default function Home() {
             <Text
               bgGradient="linear(to-l, blue.300, blue.500)"
               bgClip="text"
-              fontSize="6xl"
+              fontSize="5xl"
               fontWeight="extrabold"
             >
               Invoice Maker

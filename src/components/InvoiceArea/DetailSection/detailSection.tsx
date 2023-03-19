@@ -72,10 +72,11 @@ const DetailsSection = () => {
           <Select
             placeholder="Type"
             variant={"outline"}
-            bg={"white"}
+            bg={"whiteAlpha.600"}
             textAlign={"center"}
             height={"4rem"}
             size={"lg"}
+            boxShadow={"sm"}
           >
             <option value="invoice">INVOICE</option>
             <option value="quote">QUOTE</option>
@@ -88,65 +89,72 @@ const DetailsSection = () => {
           variant="outline"
           width={"100%"}
           height={"100%"}
-          bgColor={"white"}
+          bgColor={"whiteAlpha.600"}
           border={"2px dashed"}
           borderColor={"gray.300"}
-          _hover={{ bg: "green.100" }}
+          boxShadow={"sm"}
+          _hover={{ bg: "blue.100" }}
         >
           Add Logo
         </Button>
       </GridItem>
-      <GridItem gridArea={"2 / 5 / 3 / 7"} bg="inherit">
+      <GridItem gridArea={"2 / 5 / 3 / 7"} bg="inherit" boxShadow={"sm"}>
         <InputGroup size={"xs"}>
           <InputLeftAddon
             children="Invoice No."
-            bg={"white"}
+            bg={"whiteAlpha.600"}
             padding={"2rem"}
             width={"125px"}
+            borderRadius={"5px 0 0 5px"}
           />
           <Input
             placeholder="invoice number"
             type="number"
             bg={"white"}
             padding={"2rem"}
+            borderRadius={"0 5px 5px 0"}
           />
         </InputGroup>
       </GridItem>
       {/* date item  */}
-      <GridItem gridArea={"3 / 5 / 4 / 7"} bg="inherit">
+      <GridItem gridArea={"3 / 5 / 4 / 7"} bg="inherit" boxShadow={"sm"}>
         <InputGroup size={"xs"}>
           <InputLeftAddon
             children="Invoice Date"
-            bg={"white"}
+            bg={"whiteAlpha.600"}
             padding={"2rem"}
             width={"125px"}
+            borderRadius={"5px 0 0 5px"}
           />
           <Input
             placeholder="Select Date"
             type="date"
             bg={"white"}
             padding={"2rem"}
+            borderRadius={"0 5px 5px 0"}
           />
         </InputGroup>
       </GridItem>
       {/* date item  */}
-      <GridItem gridArea={"4 / 5 / 5 / 7"} bg="inherit">
+      <GridItem gridArea={"4 / 5 / 5 / 7"} bg="inherit" boxShadow={"sm"}>
         <InputGroup size={"xs"}>
           <InputLeftAddon
             children="Due Date"
-            bg={"white"}
+            bg={"whiteAlpha.600"}
             padding={"2rem"}
             width={"125px"}
+            borderRadius={"5px 0 0 5px"}
           />
           <Input
             placeholder="Select Date"
             type="date"
             bg={"white"}
             padding={"2rem"}
+            borderRadius={"0 5px 5px 0"}
           />
         </InputGroup>
       </GridItem>
-
+      {/* Billed By */}
       <GridItem gridArea={"5 / 1 / 8 / 4"} marginTop="2rem">
         <Flex>
           <Box
@@ -196,6 +204,7 @@ const DetailsSection = () => {
         </Flex>
       </GridItem>
 
+      {/* Billed To */}
       <GridItem gridArea={"5 / 4 / 8 / 7"} marginTop={"2rem"}>
         <Flex justifyContent={"end"}>
           <Box
