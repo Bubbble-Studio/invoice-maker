@@ -41,6 +41,7 @@ export default function Home() {
         </Flex>
         <Divider />
         <InvoiceArea />
+        <Divider />
       </main>
     </>
   );

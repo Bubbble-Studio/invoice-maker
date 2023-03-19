@@ -2,7 +2,6 @@
 import {
   Box,
   Button,
-  extendTheme,
   Flex,
   Grid,
   GridItem,
@@ -13,45 +12,8 @@ import {
   Textarea,
   Text,
   VStack,
-  StackDivider,
+  Divider,
 } from "@chakra-ui/react";
-
-const activeLabelStyles = {
-  transform: "scale(0.85) translateY(-24px)",
-};
-export const theme = extendTheme({
-  components: {
-    Form: {
-      variants: {
-        floating: {
-          container: {
-            _focusWithin: {
-              label: {
-                ...activeLabelStyles,
-              },
-            },
-            "input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label":
-              {
-                ...activeLabelStyles,
-              },
-            label: {
-              top: 0,
-              left: 0,
-              zIndex: 2,
-              position: "absolute",
-              backgroundColor: "white",
-              pointerEvents: "none",
-              mx: 3,
-              px: 1,
-              my: 2,
-              transformOrigin: "left top",
-            },
-          },
-        },
-      },
-    },
-  },
-});
 
 const DetailsSection = () => {
   return (
@@ -159,7 +121,7 @@ const DetailsSection = () => {
         <Flex>
           <Box
             bgColor={"whiteAlpha.600"}
-            boxShadow={"xl"}
+            boxShadow={"md"}
             width={"100%"}
             height={"fit-content"}
             borderRadius={"md"}
@@ -209,7 +171,7 @@ const DetailsSection = () => {
         <Flex justifyContent={"end"}>
           <Box
             bgColor={"whiteAlpha.600"}
-            boxShadow={"xl"}
+            boxShadow={"md"}
             width={"100%"}
             height={"fit-content"}
             borderRadius={"md"}

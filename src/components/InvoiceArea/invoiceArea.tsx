@@ -1,5 +1,5 @@
 import styles from "./invoiceArea.module.css";
-import { Box, Flex } from "@chakra-ui/react";
+import { Box, Divider, Flex } from "@chakra-ui/react";
 import DetailsSection from "./DetailSection/detailSection";
 const InvoiceForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -11,8 +11,8 @@ const InvoiceForm = () => {
       {/* box sized as A4 size  */}
       <Box
         bg="gray.100"
-        h="792px"
-        w="1128px"
+        h="fit-content"
+        w="60%"
         p={4}
         border={"0.5px"}
         borderRadius={"lg"}
