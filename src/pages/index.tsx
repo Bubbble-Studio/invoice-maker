@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import InvoiceArea from "../components/invoiceArea";
+import ItemsList from "../components/itemsList/itemsList"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,9 @@ export default function Home() {
       <main>
         <Navbar />
         <h1>Invoice Maker</h1>
-        <InvoiceArea />
+        <InvoiceArea/>
+        {/* <InvoiceArea /> */}
+        <ItemsList/>
       </main>
     </>
   );
