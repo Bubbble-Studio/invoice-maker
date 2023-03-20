@@ -20,6 +20,7 @@ export default function Home() {
       <main>
         <Navbar />
         <h1>Invoice Maker</h1>
+        <InvoiceArea/>
         {/* <InvoiceArea /> */}
         <ItemsList/>
       </main>

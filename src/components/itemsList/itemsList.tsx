@@ -56,50 +56,50 @@ const itemsList = ()=>{
                     </div>
                 </div>
                 {items?.map((item:any, i:number) => (
-                <div className="items" key={i}>
-                    <div className={styles.item_i} style={{display:"flex"}}>
-                        <div style={{padding:"1vw", margin:"1vw",width:"6%"}}>
-                            {/* <p>Sr No.</p> */}
-                            <h4>{i+1}</h4>
-                        </div>
-                        <div style={{padding:"1vw", margin:"1vw",width:"29%"}}>
-                            {/* <p>Item Name</p> */}
-                            <input
-                            type="text"
-                            name="name"
-                            onChange={(e) => handlerChange(e, i)}
-                            />
-                        </div>
+                    <div className="items" key={i}>
+                        <div className={styles.item_i} style={{display:"flex"}}>
+                            <div style={{padding:"1vw", margin:"1vw",width:"6%"}}>
+                                {/* <p>Sr No.</p> */}
+                                <h4>{i+1}</h4>
+                            </div>
+                            <div style={{padding:"1vw", margin:"1vw",width:"29%"}}>
+                                {/* <p>Item Name</p> */}
+                                <input
+                                type="text"
+                                name="name"
+                                onChange={(e) => handlerChange(e, i)}
+                                />
+                            </div>
 
-                        <div style={{padding:"1vw", margin:"1vw", width:"15%"}}>
-                            {/* <p>Qty</p> */}
-                            <input
-                            type="number"
-                            name="quantity"
-                            onChange={(e) => handlerChange(e, i)}
-                            />
-                        </div>
+                            <div style={{padding:"1vw", margin:"1vw", width:"15%"}}>
+                                {/* <p>Qty</p> */}
+                                <input
+                                type="number"
+                                name="quantity"
+                                onChange={(e) => handlerChange(e, i)}
+                                />
+                            </div>
 
-                        <div style={{padding:"1vw", margin:"1vw", width:"15%"}}>
-                            {/* <p>Price</p> */}
-                            <input
-                            type="number"
-                            name="price"
-                            onChange={(e) => handlerChange(e, i)}
-                            />
-                        </div>
-                        <div style={{padding:"1vw", margin:"1vw", width:"15%"}}>
-                            {/* <p>Total Amount</p> */}
-                            <h4>{item.total}</h4>
-                        </div>
+                            <div style={{padding:"1vw", margin:"1vw", width:"15%"}}>
+                                {/* <p>Price</p> */}
+                                <input
+                                type="number"
+                                name="price"
+                                onChange={(e) => handlerChange(e, i)}
+                                />
+                            </div>
+                            <div style={{padding:"1vw", margin:"1vw", width:"15%"}}>
+                                {/* <p>Total Amount</p> */}
+                                <h4>{item.total}</h4>
+                            </div>
 
-                        <div style={{padding:"1vw", margin:"1vw"}}>
-                            <Button className="delete-btn" onClick={() => deleteItem(i)}>
-                                Delete
-                            </Button>
-                        </div>    
+                            <div style={{padding:"1vw", margin:"1vw"}}>
+                                <Button className="delete-btn" onClick={() => deleteItem(i)}>
+                                    Delete
+                                </Button>
+                            </div>    
+                        </div>
                     </div>
-                </div>
                 ))}
             </div>
             <div style={{display: "flex", justifyContent:"center", alignItems:"center"}}>
