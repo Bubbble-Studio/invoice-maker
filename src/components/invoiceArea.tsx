@@ -1,9 +1,28 @@
+import { useState } from "react";
 import styles from "./invoiceArea.module.css";
 
 const InvoiceForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     console.log("submitted");
   };
+  const [invoiceNumber, setInvoiceNumber] = useState<String>();
+  const [date, setDate] = useState<Date>(new Date());
+  const [dueDate, setDueDate] = useState<Date>(new Date());
+  // const [billedBy, setBilledBy] = useState<String>("");
+  const [bbname, setBbName] = useState<String>("");
+  const [bbaddress, setBbAddress] = useState<String>("");
+  const [bbgstIn, setBbGstIn] = useState<Number>();
+  const [bbemail, setBbEmail] = useState<String>();
+  const [bbphone, setBbNumber] = useState<Number>();
+
+  // const [billedTo, setBilledTo] = useState<String>("");
+  const [btname, setBtName] = useState<String>("");
+  const [btaddress, setBtAddress] = useState<String>("");
+  const [btgstIn, setBtGstIn] = useState<Number>();
+  const [btemail, setBtEmail] = useState<String>();
+  const [btphone, setBtNumber] = useState<Number>();
+
+  // const [tax, settax] = useState<Number>(18);
 
   return (
     <div className={styles.invoiceArea}>
@@ -18,6 +37,7 @@ const InvoiceForm = () => {
               name="invoiceNumber"
               required
               className={styles.input}
+              onChange = {(e)=>{setInvoiceNumber(e.target.value)}}
             />
           </div>
           <div>
@@ -38,6 +58,8 @@ const InvoiceForm = () => {
               name="date"
               required
               className={styles.input}
+              onChange = {(e)=>{setDate(new Date(e.target.value))}}
+
             />
           </div>
           <div>
@@ -48,6 +70,7 @@ const InvoiceForm = () => {
               name="dueDate"
               required
               className={styles.input}
+              onChange = {(e)=>{setDueDate(new Date(e.target.value))}}
             />
           </div>
         </fieldset>
@@ -62,6 +85,7 @@ const InvoiceForm = () => {
               name="billedByName"
               required
               className={styles.input}
+              onChange={(e)=>{setBbName(e.target.value)}}
             />
           </div>
           <div>
@@ -72,6 +96,7 @@ const InvoiceForm = () => {
               name="billedByAddress"
               required
               className={styles.input}
+              onChange={(e)=>{setBbAddress(e.target.value)}}
             />
           </div>
           <div>
@@ -82,6 +107,7 @@ const InvoiceForm = () => {
               name="billedByGstIn"
               required
               className={styles.input}
+              onChange={(e)=>{setBbGstIn(Number(e.target.value))}}
             />
           </div>
           <div>
@@ -92,6 +118,7 @@ const InvoiceForm = () => {
               name="billedByEmail"
               required
               className={styles.input}
+              onChange={(e)=>{setBbEmail(e.target.value)}}
             />
           </div>
           <div>
@@ -102,10 +129,12 @@ const InvoiceForm = () => {
               name="billedByPhone"
               required
               className={styles.input}
+              onChange={(e)=>{setBbNumber(Number(e.target.value))}}
             />
           </div>
         </fieldset>
 
+    {/* Billed to component...... */}
         <fieldset className={styles.billedTo}>
           <legend>Billed To</legend>
           <div>
@@ -116,6 +145,7 @@ const InvoiceForm = () => {
               name="billedToName"
               required
               className={styles.input}
+              onChange = {(e)=>{setBtName(e.target.value)}}
             />
           </div>
           <div>
@@ -126,6 +156,7 @@ const InvoiceForm = () => {
               name="billedToAddress"
               required
               className={styles.input}
+              onChange = {(e)=>{setBtAddress(e.target.value)}}
             />
           </div>
           <div>
@@ -136,6 +167,7 @@ const InvoiceForm = () => {
               name="billedToGstIn"
               required
               className={styles.input}
+              onChange = {(e)=>{setBtGstIn(Number(e.target.value))}}
             />
           </div>
           <div>
@@ -146,6 +178,7 @@ const InvoiceForm = () => {
               name="billedToEmail"
               required
               className={styles.input}
+              onChange = {(e)=>{setBtEmail(e.target.value)}}
             />
           </div>
           <div>
@@ -156,13 +189,14 @@ const InvoiceForm = () => {
               name="billedByPhone"
               required
               className={styles.input}
+              onChange = {(e)=>{setBtNumber(Number(e.target.value))}}
             />
           </div>
         </fieldset>
 
         <div className={styles.itemDetails}>
           <div className={styles.itemForm}>
-            <div className={styles.formGroup}>
+            {/* <div className={styles.formGroup}>
               <label htmlFor="srNo">Sr. No.</label>
               <input type="text" id="srNo" name="srNo" />
             </div>
@@ -195,7 +229,7 @@ const InvoiceForm = () => {
             <div className={styles.formGroup}>
               <label htmlFor="amountInWords">Amount in Words</label>
               <input type="text" id="amountInWords" name="amountInWords" />
-            </div>
+            </div> */}
 
             <div className={styles.formGroup}>
               <label htmlFor="termsAndCondition">Terms and Condition</label>
@@ -215,8 +249,8 @@ const InvoiceForm = () => {
               />
             </div>
           </div>
-          <button type="submit">Submit</button>
         </div>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
