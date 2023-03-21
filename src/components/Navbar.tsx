@@ -14,7 +14,7 @@ const Navbar = () => {
   const isDark = colorMode === "dark";
   const [display, changeDisplay] = useState("none");
   return (
-    <Flex>
+    <Flex justifyContent={"center"}>
       <Flex position="sticky" top="1rem" right="1rem" align="center">
         {/* Desktop */}
         <Flex display={["none", "none", "flex", "flex"]}>

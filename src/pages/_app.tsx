@@ -1,9 +1,16 @@
 import type { AppProps } from "next/app";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import "@fontsource/poppins/400.css";
 
+const theme = extendTheme({
+  fonts: {
+    heading: `'Poppins'`,
+    body: `'Poppins'`,
+  },
+});
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Component {...pageProps} />
     </ChakraProvider>
   );

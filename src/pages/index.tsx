@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import Navbar from "../components/Navbar";
-import InvoiceArea from "../components/invoiceArea";
+import InvoiceArea from "../components/InvoiceArea/invoiceArea";
+import { Heading, Text, Box, Center, Flex, Divider } from "@chakra-ui/react";
 import ItemsList from "../components/itemsList/itemsList"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,6 +20,29 @@ export default function Home() {
       </Head>
       <main>
         <Navbar />
+        <Flex alignItems={"center"} justifyContent={"center"}>
+          <Flex flexDirection={"column"} textAlign={"center"} color={"black"}>
+            <Text
+              bgGradient="linear(to-l, blue.300, blue.500)"
+              bgClip="text"
+              fontSize="5xl"
+              fontWeight="extrabold"
+            >
+              Invoice Maker
+            </Text>
+            <Text
+              fontSize="xl"
+              bgGradient="linear(to-l, blue.300, blue.500)"
+              bgClip="text"
+            >
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Voluptatem, reiciendis.
+            </Text>
+          </Flex>
+        </Flex>
+        <Divider />
+        <InvoiceArea />
+        <Divider />
         <h1>Invoice Maker</h1>
         <InvoiceArea/>
         {/* <InvoiceArea /> */}
