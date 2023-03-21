@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import InvoiceArea from "../components/InvoiceArea/invoiceArea";
 import { Heading, Text, Box, Center, Flex, Divider } from "@chakra-ui/react";
+import ItemsList from "../components/itemsList/itemsList"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,6 +43,10 @@ export default function Home() {
         <Divider />
         <InvoiceArea />
         <Divider />
+        <h1>Invoice Maker</h1>
+        <InvoiceArea/>
+        {/* <InvoiceArea /> */}
+        <ItemsList/>
       </main>
     </>
   );
