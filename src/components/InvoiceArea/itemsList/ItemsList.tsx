@@ -93,14 +93,22 @@ import {
   Button,
   Flex,
   Heading,
+  HStack,
   Input,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
   Table,
   Tbody,
   Td,
   Th,
   Thead,
   Tr,
+  Text,
 } from "@chakra-ui/react";
+import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 const ItemsList = () => {
   const [items, setItems] = useState<any>([
@@ -112,7 +120,7 @@ const ItemsList = () => {
   };
 
   const handlerChange = (event: any, i: number) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target || { name: "quantity", value: event };
     const list = [...items];
     list[i][name] = value;
     list[i]["total"] = list[i]["quantity"] * list[i]["price"];
@@ -146,10 +154,10 @@ const ItemsList = () => {
           <Thead>
             <Tr>
               <Th>Sr. No.</Th>
-              <Th>Item</Th>
-              <Th>Quantity</Th>
-              <Th>Price</Th>
-              <Th>Amount</Th>
+              <Th>Description</Th>
+              <Th>Qty</Th>
+              <Th>Price ₹</Th>
+              <Th>Amount ₹</Th>
               <Th></Th>
             </Tr>
           </Thead>
@@ -159,24 +167,49 @@ const ItemsList = () => {
                 <Td>{i + 1}</Td>
                 <Td>
                   <Input
+                    bgColor={"gray.200"}
                     type="text"
                     name="name"
+                    placeholder="Description"
                     value={item.name}
                     onChange={(e) => handlerChange(e, i)}
                   />
                 </Td>
                 <Td>
-                  <Input
+                  <NumberInput
+                    bgColor={"gray.200"}
+                    border={"1px solid gray.100"}
+                    borderRadius={"md"}
+                    size="md"
+                    maxW={"40"}
+                    step={1}
+                    defaultValue={1}
+                    min={0}
+                    name="quantity"
+                    aria-autocomplete="both"
+                    value={item.quantity}
+                    onChange={(e) => handlerChange(e, i)}
+                    max={50}
+                  >
+                    <NumberInputField />
+                    <NumberInputStepper>
+                      <NumberIncrementStepper />
+                      <NumberDecrementStepper />
+                    </NumberInputStepper>
+                  </NumberInput>
+                  {/* <Input
                     type="number"
                     name="quantity"
                     value={item.quantity}
                     onChange={(e) => handlerChange(e, i)}
-                  />
+                  /> */}
                 </Td>
                 <Td>
                   <Input
+                    bgColor={"gray.200"}
                     type="number"
                     name="price"
+                    placeholder="₹"
                     value={item.price}
                     onChange={(e) => handlerChange(e, i)}
                   />
@@ -188,15 +221,29 @@ const ItemsList = () => {
                     size="sm"
                     onClick={() => deleteItem(i)}
                   >
-                    Delete
+                    <MinusIcon />
                   </Button>
                 </Td>
               </Tr>
             ))}
             <Tr>
+              <Td colSpan={2}></Td>
+              <Flex justifyContent="center" alignItems="center">
+                <Button
+                  className="add_item-btn"
+                  onClick={addItem}
+                  colorScheme="green"
+                  mt="1rem"
+                  width={"60%"}
+                >
+                  <AddIcon />
+                </Button>
+              </Flex>
+            </Tr>
+            <Tr>
               <Td colSpan={4}></Td>
               <Td>Total:</Td>
-              <Td>{totalAmount.toFixed(2)}</Td>
+              <Td>₹ {totalAmount.toFixed(2)}</Td>
               <Td></Td>
             </Tr>
             {/* Take user input for GST and calculate the total amount */}
@@ -219,26 +266,15 @@ const ItemsList = () => {
             <Tr>
               <Td colSpan={4}></Td>
               <Td>Grand Total:</Td>
-              <Td>{grandTotal}</Td>
+              <Td>₹ {grandTotal}</Td>
               <Td></Td>
             </Tr>
           </Tbody>
         </Table>
       </Box>
 
-      <Flex justifyContent="center" alignItems="center">
-        <Button
-          className="add_item-btn"
-          onClick={addItem}
-          colorScheme="green"
-          mt="1rem"
-        >
-          Add New Item
-        </Button>
-      </Flex>
-
       <Box className="totalSum" textAlign="end" mt="1rem">
-        Total: {grandTotal}
+        Total: ₹ {grandTotal}
       </Box>
     </Box>
   );
