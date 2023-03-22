@@ -108,6 +108,29 @@ import {
   Tr,
   Text,
 } from "@chakra-ui/react";
+
+import { ToWords } from "to-words";
+
+const toWords = new ToWords({
+  localeCode: "en-IN",
+  converterOptions: {
+    currency: true,
+    ignoreDecimal: false,
+    ignoreZeroCurrency: false,
+    doNotAddOnly: false,
+    currencyOptions: {
+      name: "Rupee",
+      plural: "Rupees",
+      symbol: "₹",
+      fractionalUnit: {
+        name: "Paisa",
+        plural: "Paise",
+        symbol: "",
+      },
+    },
+  },
+});
+
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 const ItemsList = () => {
@@ -146,6 +169,8 @@ const ItemsList = () => {
   };
 
   const grandTotal = totalAmount + (totalAmount * gst) / 100;
+
+  const inWords = toWords.convert(grandTotal);
 
   return (
     <Box p={6} maxWidth="inherit" mx="auto">
@@ -197,12 +222,6 @@ const ItemsList = () => {
                       <NumberDecrementStepper />
                     </NumberInputStepper>
                   </NumberInput>
-                  {/* <Input
-                    type="number"
-                    name="quantity"
-                    value={item.quantity}
-                    onChange={(e) => handlerChange(e, i)}
-                  /> */}
                 </Td>
                 <Td>
                   <Input
@@ -246,7 +265,6 @@ const ItemsList = () => {
               <Td>₹ {totalAmount.toFixed(2)}</Td>
               <Td></Td>
             </Tr>
-            {/* Take user input for GST and calculate the total amount */}
             <Tr>
               <Td colSpan={4}></Td>
               <Td>GST %:</Td>
@@ -275,6 +293,9 @@ const ItemsList = () => {
 
       <Box className="totalSum" textAlign="end" mt="1rem">
         Total: ₹ {grandTotal}
+      </Box>
+      <Box className="inWords" textAlign="end" mt="1rem">
+        In Words: {inWords}
       </Box>
     </Box>
   );
