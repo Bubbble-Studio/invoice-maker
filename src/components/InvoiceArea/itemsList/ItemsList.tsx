@@ -234,9 +234,9 @@ const ItemsList = () => {
                   onClick={addItem}
                   colorScheme="green"
                   mt="1rem"
-                  width={"60%"}
                 >
-                  <AddIcon />
+                  <AddIcon marginRight={"0.5rem"} />
+                  <Text>New Item</Text>
                 </Button>
               </Flex>
             </Tr>
