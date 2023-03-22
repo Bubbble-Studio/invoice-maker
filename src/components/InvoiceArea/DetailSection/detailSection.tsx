@@ -17,108 +17,100 @@ import {
 
 const DetailsSection = () => {
   return (
-    <Grid
-      h="90vh"
-      templateRows="repeat(12, 1fr)"
-      templateColumns="repeat(6, 1fr)"
-      gap={"10px"}
-    >
-      {/* type item  */}
-      <GridItem
-        gridArea={"1 / 1 / 2 / 3"}
-        bg="inherit"
-        width={"100%"}
-        height={"fit-content"}
-      >
-        <Flex justifyContent={"center"}>
-          <Select
-            placeholder="Type"
-            variant={"outline"}
-            bg={"whiteAlpha.600"}
-            textAlign={"center"}
-            height={"4rem"}
-            size={"lg"}
-            boxShadow={"sm"}
-          >
-            <option value="invoice">INVOICE</option>
-            <option value="quote">QUOTE</option>
-            <option value="estimate">ESTIMATE</option>
-          </Select>
-        </Flex>
-      </GridItem>
-      <GridItem gridArea={"2 / 1 / 5 / 3"} bgColor={"inherit"}>
-        <Button
-          variant="outline"
-          width={"100%"}
-          height={"100%"}
-          bgColor={"whiteAlpha.600"}
-          border={"2px dashed"}
-          borderColor={"gray.300"}
+    <Box width={"100%"}>
+      <Flex>
+        <Select
+          placeholder="Type"
+          variant={"outline"}
+          bg={"whiteAlpha.600"}
+          textAlign={"center"}
+          height={"4rem"}
+          size={"lg"}
           boxShadow={"sm"}
-          _hover={{ bg: "blue.100" }}
+          width={"100%"}
+          padding={"1rem 0 0.5rem 0"}
         >
-          Add Logo
-        </Button>
-      </GridItem>
-      <GridItem gridArea={"2 / 5 / 3 / 7"} bg="inherit" boxShadow={"sm"}>
-        <InputGroup size={"xs"}>
-          <InputLeftAddon
-            children="Invoice No."
-            bg={"whiteAlpha.600"}
-            padding={"2rem"}
-            width={"125px"}
-            borderRadius={"5px 0 0 5px"}
-          />
-          <Input
-            placeholder="invoice number"
-            type="number"
-            bg={"white"}
-            padding={"2rem"}
-            borderRadius={"0 5px 5px 0"}
-          />
-        </InputGroup>
-      </GridItem>
-      {/* date item  */}
-      <GridItem gridArea={"3 / 5 / 4 / 7"} bg="inherit" boxShadow={"sm"}>
-        <InputGroup size={"xs"}>
-          <InputLeftAddon
-            children="Invoice Date"
-            bg={"whiteAlpha.600"}
-            padding={"2rem"}
-            width={"125px"}
-            borderRadius={"5px 0 0 5px"}
-          />
-          <Input
-            placeholder="Select Date"
-            type="date"
-            bg={"white"}
-            padding={"2rem"}
-            borderRadius={"0 5px 5px 0"}
-          />
-        </InputGroup>
-      </GridItem>
-      {/* date item  */}
-      <GridItem gridArea={"4 / 5 / 5 / 7"} bg="inherit" boxShadow={"sm"}>
-        <InputGroup size={"xs"}>
-          <InputLeftAddon
-            children="Due Date"
-            bg={"whiteAlpha.600"}
-            padding={"2rem"}
-            width={"125px"}
-            borderRadius={"5px 0 0 5px"}
-          />
-          <Input
-            placeholder="Select Date"
-            type="date"
-            bg={"white"}
-            padding={"2rem"}
-            borderRadius={"0 5px 5px 0"}
-          />
-        </InputGroup>
-      </GridItem>
+          <option value="invoice">INVOICE</option>
+          <option value="quote">QUOTE</option>
+          <option value="estimate">ESTIMATE</option>
+        </Select>
+      </Flex>
+
+      <Flex flexDirection={"row"} padding={"1rem 0 0.5rem 0"}>
+        <Flex width={"100%"}>
+          <Button
+            variant="outline"
+            width={"50%"}
+            height={"100%"}
+            bgColor={"whiteAlpha.600"}
+            border={"2px dashed"}
+            borderColor={"gray.300"}
+            boxShadow={"sm"}
+            _hover={{ bg: "blue.100" }}
+            padding={"0.5rem"}
+          >
+            Add Logo
+          </Button>
+        </Flex>
+        <Flex width={"fir"}>
+          <Flex flexDirection={"column"}>
+            <InputGroup size={"xs"}>
+              <InputLeftAddon
+                children="Invoice No."
+                bg={"whiteAlpha.600"}
+                padding={"2rem"}
+                width={"125px"}
+                borderRadius={"5px 0 0 5px"}
+              />
+              <Input
+                placeholder="invoice number"
+                type="number"
+                bg={"white"}
+                padding={"2rem"}
+                borderRadius={"0 5px 5px 0"}
+                width={"100%"}
+              />
+            </InputGroup>
+
+            <InputGroup size={"xs"}>
+              <InputLeftAddon
+                children="Invoice Date"
+                bg={"whiteAlpha.600"}
+                padding={"2rem"}
+                width={"125px"}
+                borderRadius={"5px 0 0 5px"}
+              />
+              <Input
+                placeholder="Select Date"
+                type="date"
+                bg={"white"}
+                padding={"2rem"}
+                borderRadius={"0 5px 5px 0"}
+              />
+            </InputGroup>
+
+            <InputGroup size={"xs"}>
+              <InputLeftAddon
+                children="Due Date"
+                bg={"whiteAlpha.600"}
+                padding={"2rem"}
+                width={"125px"}
+                borderRadius={"5px 0 0 5px"}
+              />
+              <Input
+                placeholder="Select Date"
+                type="date"
+                bg={"white"}
+                padding={"2rem"}
+                borderRadius={"0 5px 5px 0"}
+              />
+            </InputGroup>
+          </Flex>
+        </Flex>
+      </Flex>
       {/* Billed By */}
-      <GridItem gridArea={"5 / 1 / 8 / 4"} marginTop="2rem">
-        <Flex>
+      <Flex flexDirection={"row"} width={"100%"} padding={"1rem 0 1rem 0"}>
+        <Flex width={"100%"} marginRight={"0.5rem"}>
           <Box
             bgColor={"whiteAlpha.600"}
             boxShadow={"md"}
@@ -164,11 +156,8 @@ const DetailsSection = () => {
             </Flex>
           </Box>
         </Flex>
-      </GridItem>
-
-      {/* Billed To */}
-      <GridItem gridArea={"5 / 4 / 8 / 7"} marginTop={"2rem"}>
-        <Flex justifyContent={"end"}>
+        {/* Billed To */}
+        <Flex width={"100%"} marginLeft={"0.5rem"}>
           <Box
             bgColor={"whiteAlpha.600"}
             boxShadow={"md"}
@@ -215,8 +204,8 @@ const DetailsSection = () => {
             </Flex>
           </Box>
         </Flex>
-      </GridItem>
-    </Grid>
+      </Flex>
+    </Box>
   );
 };
 
