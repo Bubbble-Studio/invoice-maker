@@ -20,27 +20,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { ToWords } from "to-words";
-
-const toWords = new ToWords({
-  localeCode: "en-IN",
-  converterOptions: {
-    currency: true,
-    ignoreDecimal: false,
-    ignoreZeroCurrency: false,
-    doNotAddOnly: false,
-    currencyOptions: {
-      name: "Rupee",
-      plural: "Rupees",
-      symbol: "₹",
-      fractionalUnit: {
-        name: "Paisa",
-        plural: "Paise",
-        symbol: "",
-      },
-    },
-  },
-});
+import convertNumberToWords from "./AmountToWords";
 
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
@@ -79,9 +59,9 @@ const ItemsList = () => {
     setGst(value);
   };
 
-  const grandTotal = totalAmount + (totalAmount * gst) / 100;
+  const grandTotal = (totalAmount + (totalAmount * gst) / 100).toFixed(2);
 
-  const inWords = toWords.convert(grandTotal);
+  const inWords = convertNumberToWords(grandTotal);
 
   return (
     <Box p={6} maxWidth="inherit" mx="auto">
@@ -192,7 +172,7 @@ const ItemsList = () => {
                 />
                 %:
               </Td>
-              <Td>₹ {(gst * totalAmount) / 100}</Td>
+              <Td>₹ {((gst * totalAmount) / 100).toFixed(2)}</Td>
             </Tr>
             <Tr>
               <Td colSpan={3}></Td>
