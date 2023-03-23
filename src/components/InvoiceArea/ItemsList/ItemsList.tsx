@@ -46,11 +46,11 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
 const ItemsList = () => {
   const [items, setItems] = useState<any>([
-    { name: "", quantity: 0, price: 0, total: 0 },
+    { name: "", quantity: 1, price: 0, total: 0 },
   ]);
 
   const addItem = () => {
-    setItems([...items, { name: "", quantity: 0, price: 0, total: 0 }]);
+    setItems([...items, { name: "", quantity: 1, price: 0, total: 0 }]);
   };
 
   const handlerChange = (event: any, i: number) => {
@@ -120,7 +120,7 @@ const ItemsList = () => {
                     maxW={"40"}
                     step={1}
                     defaultValue={1}
-                    min={0}
+                    min={1}
                     name="quantity"
                     aria-autocomplete="both"
                     value={item.quantity}

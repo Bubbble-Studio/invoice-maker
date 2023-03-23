@@ -1,7 +1,7 @@
 import styles from "./invoiceArea.module.css";
 import { Box, Divider, Flex } from "@chakra-ui/react";
-import DetailsSection from "./DetailSection/detailSection";
-import ItemsList from "./itemsList/ItemsList";
+import DetailsSection from "./DetailSection/DetailSection";
+import ItemsList from "./ItemsList/ItemsList";
 import TermsSection from "./TermsSection/TermsSection";
 
 const InvoiceForm = () => {

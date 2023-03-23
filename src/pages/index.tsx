@@ -1,8 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
-import Navbar from "../components/Navbar";
-import InvoiceArea from "../components/InvoiceArea/invoiceArea";
+import Navbar from "../components/Navbar/Navbar";
+import InvoiceArea from "../components/InvoiceArea/InvoiceArea";
 import { Heading, Text, Box, Center, Flex, Divider } from "@chakra-ui/react";
 
 export default function Home() {
