@@ -21,79 +21,78 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { AttachmentIcon, MinusIcon } from "@chakra-ui/icons";
-import { useState } from "react";
+import { useInvoiceContext } from "@/utils/contexts/InvoiceContext";
 
 const DetailsSection = () => {
-  const [type, setType] = useState("");
+  const { details, setDetails } = useInvoiceContext();
+
+  const {
+    type,
+    invoiceNumber,
+    invoiceDate,
+    dueDate,
+    logo,
+    billedBy,
+    billedTo,
+  } = details;
 
   const handleTypeChange = (event: any) => {
-    setType(event.target.value);
+    setDetails({ ...details, type: event.target.value });
   };
-
-  const [invoiceNumber, setInvoiceNumber] = useState("");
 
   const handleInvoiceNumberChange = (event: any) => {
-    setInvoiceNumber(event.target.value);
+    setDetails({ ...details, invoiceNumber: event.target.value });
   };
-
-  const [invoiceDate, setInvoiceDate] = useState("");
 
   const handleInvoiceDateChange = (event: any) => {
-    setInvoiceDate(event.target.value);
+    setDetails({ ...details, invoiceDate: event.target.value });
   };
 
-  const [dueDate, setDueDate] = useState("");
-
   const handleDueDateChange = (event: any) => {
-    setDueDate(event.target.value);
+    setDetails({ ...details, dueDate: event.target.value });
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [logo, setLogo] = useState<string | null>(null);
 
   const handleImageUpload = (event: any) => {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setLogo(reader.result as string);
+      setDetails({
+        ...details,
+        logo: reader.result as string,
+      });
     };
   };
 
   const handleReplaceClick = () => {
-    setLogo(null);
+    setDetails({
+      ...details,
+      logo: null,
+    });
   };
-
-  const [billedBy, setBilledBy] = useState({
-    businessName: "",
-    address: "",
-    gstIn: "",
-    email: "",
-    phone: "",
-  });
 
   const handleBilledByInputChange = (e: any) => {
     const { name, value } = e.target;
-    setBilledBy((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
+    setDetails({
+      ...details,
+      billedBy: {
+        ...details.billedBy,
+        [name]: value,
+      },
+    });
   };
-
-  const [billedTo, setBilledTo] = useState({
-    businessName: "",
-    address: "",
-    gstIn: "",
-    email: "",
-    phone: "",
-  });
 
   const handleBilledToInputChange = (e: any) => {
     const { name, value } = e.target;
-    setBilledTo((prevValues) => ({
-      ...prevValues,
-      [name]: value,
-    }));
+    setDetails({
+      ...details,
+      billedTo: {
+        ...details.billedTo,
+        [name]: value,
+      },
+    });
   };
 
   return (

@@ -1,12 +1,24 @@
 import styles from "./invoiceArea.module.css";
-import { Box, Divider, Flex } from "@chakra-ui/react";
+import { Box, Button, Divider, Flex } from "@chakra-ui/react";
 import DetailsSection from "./DetailSection/DetailSection";
 import ItemsList from "./ItemsList/ItemsList";
 import TermsSection from "./TermsSection/TermsSection";
+import { useInvoiceContext } from "@/utils/contexts/InvoiceContext";
 
 const InvoiceForm = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log("submitted");
+  const { details, items, gst, terms, signature } = useInvoiceContext();
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const finalValues = {
+      details,
+      items,
+      gst,
+      terms,
+      signature,
+    };
+
+    console.log(finalValues);
   };
 
   return (
@@ -26,6 +38,10 @@ const InvoiceForm = () => {
           <ItemsList />
           <Divider />
           <TermsSection />
+          <Divider />
+          <Box textAlign={"center"}>
+            <Button type="submit">Submit</Button>
+          </Box>
         </form>
       </Box>
     </Flex>

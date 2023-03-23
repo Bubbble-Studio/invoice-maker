@@ -1,10 +1,7 @@
-import { useState } from "react";
 import {
   Box,
   Button,
   Flex,
-  Heading,
-  HStack,
   Input,
   NumberDecrementStepper,
   NumberIncrementStepper,
@@ -20,14 +17,13 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import convertNumberToWords from "./AmountToWords";
+import { convertNumberToWords } from "../../../utils/functions";
 
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
+import { useInvoiceContext } from "@/utils/contexts/InvoiceContext";
 
 const ItemsList = () => {
-  const [items, setItems] = useState<any>([
-    { name: "", quantity: 1, price: 0, total: 0 },
-  ]);
+  const { items, setItems, gst, setGst } = useInvoiceContext();
 
   const addItem = () => {
     setItems([...items, { name: "", quantity: 1, price: 0, total: 0 }]);
@@ -51,8 +47,6 @@ const ItemsList = () => {
     (acc: number, curr: any) => acc + curr.total,
     0
   );
-
-  const [gst, setGst] = useState(0);
 
   const handleGstChange = (event: any) => {
     const { value } = event.target;

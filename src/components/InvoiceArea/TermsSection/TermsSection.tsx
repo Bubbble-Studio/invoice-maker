@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Box,
   Button,
@@ -22,9 +21,10 @@ import {
   MinusIcon,
   PlusSquareIcon,
 } from "@chakra-ui/icons";
+import { useInvoiceContext } from "@/utils/contexts/InvoiceContext";
 
 const TermsSection = () => {
-  const [terms, setTerms] = useState<string[]>([""]);
+  const { terms, setTerms, signature, setSignature } = useInvoiceContext();
 
   const addTerm = () => {
     setTerms([...terms, ""]);
@@ -43,7 +43,6 @@ const TermsSection = () => {
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [signature, setSignature] = useState<string | null>(null);
 
   const handleImageUpload = (event: any) => {
     const file = event.target.files[0];
@@ -63,7 +62,7 @@ const TermsSection = () => {
       <Text fontSize="xl" fontWeight="bold" mb="4" textAlign={"center"}>
         Terms and Conditions
       </Text>
-      {terms.map((term, index) => (
+      {terms.map((term: any, index: any) => (
         <Flex key={index} mb="2" alignItems={"center"}>
           <Box as="span" mr="2">
             {index + 1}

@@ -1,4 +1,4 @@
-function convertNumberToWords(amount: number): string {
+export function convertNumberToWords(amount: number): string {
   const units = [
     "",
     "one",
@@ -82,5 +82,3 @@ function convertNumberToWords(amount: number): string {
   }
   return numberInWords.trim() + " only";
 }
-
-export default convertNumberToWords;
