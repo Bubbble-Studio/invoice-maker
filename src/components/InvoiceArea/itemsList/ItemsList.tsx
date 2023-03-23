@@ -1,92 +1,3 @@
-// return (
-// <div className={styles.main__container} style={styles}>
-//   <div className="invoice__items">
-//     <h3>Item List</h3>
-//     <div className="items">
-//       <div className={styles.item_head} style={{ display: "flex" }}>
-//         <div style={{ padding: "1vw", margin: "1vw", width: "6%" }}>
-//           <p>Sr No.</p>
-//         </div>
-//         <div style={{ padding: "1vw", margin: "1vw", width: "29%" }}>
-//           <p>Item Name</p>
-//         </div>
-
-//         <div style={{ padding: "1vw", margin: "1vw", width: "15%" }}>
-//           <p>Qty</p>
-//         </div>
-
-//         <div style={{ padding: "1vw", margin: "1vw", width: "15%" }}>
-//           <p>Price</p>
-//         </div>
-//         <div style={{ padding: "1vw", margin: "1vw", width: "15%" }}>
-//           <p>Total Amount</p>
-//         </div>
-//       </div>
-//     </div>
-//     {items?.map((item: any, i: number) => (
-//       <div className="items" key={i}>
-//         <div className={styles.item_i} style={{ display: "flex" }}>
-//           <div style={{ padding: "1vw", margin: "1vw", width: "6%" }}>
-//             {/* <p>Sr No.</p> */}
-//             <h4>{i + 1}</h4>
-//           </div>
-//           <div style={{ padding: "1vw", margin: "1vw", width: "29%" }}>
-//             {/* <p>Item Name</p> */}
-//             <input
-//               type="text"
-//               name="name"
-//               onChange={(e) => handlerChange(e, i)}
-//             />
-//           </div>
-
-//           <div style={{ padding: "1vw", margin: "1vw", width: "15%" }}>
-//             {/* <p>Qty</p> */}
-//             <input
-//               type="number"
-//               name="quantity"
-//               onChange={(e) => handlerChange(e, i)}
-//             />
-//           </div>
-
-//           <div style={{ padding: "1vw", margin: "1vw", width: "15%" }}>
-//             {/* <p>Price</p> */}
-//             <input
-//               type="number"
-//               name="price"
-//               onChange={(e) => handlerChange(e, i)}
-//             />
-//           </div>
-//           <div style={{ padding: "1vw", margin: "1vw", width: "15%" }}>
-//             {/* <p>Total Amount</p> */}
-//             <h4>{item.total}</h4>
-//           </div>
-
-//           <div style={{ padding: "1vw", margin: "1vw" }}>
-//             <Button className="delete-btn" onClick={() => deleteItem(i)}>
-//               Delete
-//             </Button>
-//           </div>
-//         </div>
-//       </div>
-//     ))}
-//   </div>
-//   <div
-//     style={{
-//       display: "flex",
-//       justifyContent: "center",
-//       alignItems: "center",
-//     }}
-//   >
-//     <Button className="add_item-btn" onClick={addItem}>
-//       Add New Item
-//     </Button>
-//   </div>
-
-//   <div className="totalSum" style={{ textAlign: "end", margin: "1vw" }}>
-//     Total : {totalAmount}
-//   </div>
-// </div>
-
 import { useState } from "react";
 import {
   Box,
@@ -178,12 +89,12 @@ const ItemsList = () => {
         <Table variant="striped" size="sm">
           <Thead>
             <Tr>
-              <Th>Sr. No.</Th>
-              <Th>Description</Th>
-              <Th>Qty</Th>
-              <Th>Price ₹</Th>
-              <Th>Amount ₹</Th>
-              <Th></Th>
+              <Th width={"10%"}>Sr. No.</Th>
+              <Th width={"25%"}>Description</Th>
+              <Th width={"15%"}>Qty</Th>
+              <Th width={"20%"}>Price ₹</Th>
+              <Th width={"15%"}>Amount ₹</Th>
+              <Th width={"15%"}></Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -260,29 +171,31 @@ const ItemsList = () => {
               </Flex>
             </Tr>
             <Tr>
-              <Td colSpan={4}></Td>
+              <Td colSpan={3}></Td>
               <Td>Total:</Td>
               <Td>₹ {totalAmount.toFixed(2)}</Td>
               <Td></Td>
             </Tr>
             <Tr>
-              <Td colSpan={4}></Td>
-              <Td>GST %:</Td>
+              <Td colSpan={3}></Td>
               <Td>
+                GST
                 <Input
                   type="number"
                   name="gst"
-                  width={"60%"}
-                  border={"0.25px solid gray"}
+                  width={"50px"}
+                  margin={"1rem"}
+                  border={"0.25px dashed"}
                   onChange={handleGstChange}
                   size={"sm"}
                   borderRadius={"0.25rem"}
                 />
+                %:
               </Td>
-              <Td></Td>
+              <Td>₹ {(gst * totalAmount) / 100}</Td>
             </Tr>
             <Tr>
-              <Td colSpan={4}></Td>
+              <Td colSpan={3}></Td>
               <Td>Grand Total:</Td>
               <Td>₹ {grandTotal}</Td>
               <Td></Td>
