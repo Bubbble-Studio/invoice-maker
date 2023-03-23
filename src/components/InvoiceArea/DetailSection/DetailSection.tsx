@@ -20,7 +20,7 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import { MinusIcon } from "@chakra-ui/icons";
+import { AttachmentIcon, MinusIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 
 const DetailsSection = () => {
@@ -146,6 +146,7 @@ const DetailsSection = () => {
                 colorScheme="blue"
                 onClick={onOpen}
               >
+                <AttachmentIcon mr={"0.5rem"} />
                 Upload Logo
               </Button>
             )}
