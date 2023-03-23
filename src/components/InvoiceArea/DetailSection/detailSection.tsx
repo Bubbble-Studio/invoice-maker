@@ -14,6 +14,7 @@ import {
   VStack,
   Divider,
 } from "@chakra-ui/react";
+import { AddIcon, AttachmentIcon, MinusIcon } from "@chakra-ui/icons";
 
 const DetailsSection = () => {
   return (
@@ -41,6 +42,7 @@ const DetailsSection = () => {
           <Button
             variant="outline"
             width={"50%"}
+            minWidth={"fit-content"}
             height={"100%"}
             bgColor={"whiteAlpha.600"}
             border={"2px dashed"}
@@ -49,6 +51,7 @@ const DetailsSection = () => {
             _hover={{ bg: "blue.100" }}
             padding={"0.5rem"}
           >
+            <AttachmentIcon mr={"0.2rem"} />
             Add Logo
           </Button>
         </Flex>
