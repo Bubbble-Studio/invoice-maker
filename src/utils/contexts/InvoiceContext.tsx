@@ -10,7 +10,7 @@ export const InvoiceContextProvider = ({ children }: any) => {
     dueDate: "",
     logo: "",
     billedBy: {
-      name: "",
+      businessName: "",
       address: "",
       gstIn: "",
       email: "",

@@ -9,7 +9,10 @@ interface Response {
   data: InvoiceType | null;
 }
 
-export function handler(req: NextApiRequest, res: NextApiResponse<Response>) {
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Response>
+) {
   try {
     if (req.method === "POST") {
       const invoice = req.body;
