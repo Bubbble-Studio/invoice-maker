@@ -31,6 +31,8 @@ export const InvoiceContextProvider = ({ children }: any) => {
 
   const [gst, setGst] = useState(0);
 
+  const [grandTotal, setGrandTotal] = useState(0);
+
   const [terms, setTerms] = useState<string[]>([""]);
 
   const [signature, setSignature] = useState<string | null>(null);
@@ -44,6 +46,8 @@ export const InvoiceContextProvider = ({ children }: any) => {
         setItems,
         gst,
         setGst,
+        grandTotal,
+        setGrandTotal,
         terms,
         setTerms,
         signature,

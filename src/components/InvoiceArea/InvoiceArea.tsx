@@ -4,13 +4,18 @@ import DetailsSection from "./DetailSection/DetailSection";
 import ItemsList from "./ItemsList/ItemsList";
 import TermsSection from "./TermsSection/TermsSection";
 import { useInvoiceContext } from "@/utils/contexts/InvoiceContext";
+import { useEffect, useState } from "react";
 
 const InvoiceForm = () => {
   const { details, items, gst, terms, signature } = useInvoiceContext();
 
+  const [invoiceData, setInvoiceData] = useState<any>(null);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const finalValues = {
+    const invoiceData = {
       details,
       items,
       gst,
@@ -18,8 +23,40 @@ const InvoiceForm = () => {
       signature,
     };
 
-    console.log(finalValues);
+    setInvoiceData(invoiceData);
   };
+
+  useEffect(() => {
+    fetch("/api/invoice", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(invoiceData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+        setLoading(false);
+      });
+  }, [invoiceData]);
+
+  if (error) {
+    return (
+      <div>
+        <h3>ERROR while sending Data!!!</h3>
+      </div>
+    );
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Flex justifyContent={"center"} alignItems={"center"} margin={"1.5rem"}>

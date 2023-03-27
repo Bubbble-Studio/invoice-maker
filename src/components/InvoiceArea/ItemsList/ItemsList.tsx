@@ -23,7 +23,8 @@ import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 import { useInvoiceContext } from "@/utils/contexts/InvoiceContext";
 
 const ItemsList = () => {
-  const { items, setItems, gst, setGst } = useInvoiceContext();
+  const { items, setItems, gst, setGst, grandTotal, setGrandTotal } =
+    useInvoiceContext();
 
   const addItem = () => {
     setItems([...items, { name: "", quantity: 1, price: 0, total: 0 }]);
@@ -53,7 +54,7 @@ const ItemsList = () => {
     setGst(value);
   };
 
-  const grandTotal = (totalAmount + (totalAmount * gst) / 100).toFixed(2);
+  setGrandTotal((totalAmount + (totalAmount * gst) / 100).toFixed(2));
 
   const inWords = convertNumberToWords(grandTotal);
 
