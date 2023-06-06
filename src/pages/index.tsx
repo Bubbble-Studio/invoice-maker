@@ -15,25 +15,39 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Navbar />
-        <Flex alignItems={"center"} justifyContent={"center"}>
+        <Flex
+          alignItems={"center"}
+          justifyContent={"center"}
+          flexDirection={"column"}
+          bgGradient={
+            "linear(107.21deg, #BAE4F5 0%, #CDF1BF 53.31%, #F8FAA8 113.36%)"
+          }
+        >
+          <Navbar />
           <Flex flexDirection={"column"} textAlign={"center"} color={"black"}>
-            <Text
-              bgGradient="linear(to-l, blue.300, blue.500)"
-              bgClip="text"
-              fontSize="5xl"
-              fontWeight="extrabold"
+            <h3
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "42px",
+                fontWeight: "700",
+                color: "#333333",
+                marginTop: "0.8rem",
+              }}
             >
               Invoice Maker
-            </Text>
-            <Text
-              fontSize="xl"
-              bgGradient="linear(to-l, blue.300, blue.500)"
-              bgClip="text"
+            </h3>
+            <p
+              style={{
+                fontFamily: "Poppins",
+                fontSize: "18px",
+                color: "#333333",
+                fontWeight: "400",
+                marginBottom: "2rem",
+              }}
             >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Voluptatem, reiciendis.
-            </Text>
+              Simplify your billing process with our user-friendly invoice
+              maker, making financial management a breeze
+            </p>
           </Flex>
         </Flex>
         <Divider />

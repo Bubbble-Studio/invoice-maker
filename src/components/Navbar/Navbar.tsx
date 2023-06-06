@@ -13,28 +13,36 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
   const [display, changeDisplay] = useState("none");
+
+  const menuItems = [
+    { label: "Home", link: "/" },
+    { label: "About", link: "/about" },
+    { label: "Contact", link: "/contact" },
+  ];
+
   return (
-    <Flex justifyContent={"center"}>
-      <Flex position="sticky" top="1rem" right="1rem" align="center">
+    <Flex justifyContent="center" mt={"30px"}>
+      <Flex right="1rem" align="center">
         {/* Desktop */}
-        <Flex display={["none", "none", "flex", "flex"]}>
-          <NextLink href="/" passHref>
-            <Button as="a" variant="ghost" aria-label="Home" my={5} w="100%">
-              Home
-            </Button>
-          </NextLink>
-
-          <NextLink href="/about" passHref>
-            <Button as="a" variant="ghost" aria-label="About" my={5} w="100%">
-              About
-            </Button>
-          </NextLink>
-
-          <NextLink href="/contact" passHref>
-            <Button as="a" variant="ghost" aria-label="Contact" my={5} w="100%">
-              Contact
-            </Button>
-          </NextLink>
+        <Flex
+          display={["none", "none", "flex", "flex"]}
+          justifyContent="space-between"
+          w="252px"
+        >
+          {menuItems.map((item) => (
+            <NextLink key={item.link} href={item.link} passHref>
+              <Button
+                color={"black"}
+                as="a"
+                variant="link"
+                aria-label={item.label}
+                my={5}
+                w="100%"
+              >
+                {item.label}
+              </Button>
+            </NextLink>
+          ))}
         </Flex>
 
         {/* Mobile */}
@@ -46,7 +54,12 @@ const Navbar = () => {
           onClick={() => changeDisplay("flex")}
           display={["flex", "flex", "none", "none"]}
         />
-        <Switch color="green" isChecked={isDark} onChange={toggleColorMode} />
+        <Switch
+          color="green"
+          isChecked={isDark}
+          onChange={toggleColorMode}
+          left="2rem"
+        />
       </Flex>
 
       {/* Mobile Content */}
@@ -74,23 +87,19 @@ const Navbar = () => {
         </Flex>
 
         <Flex flexDir="column" align="center">
-          <NextLink href="/" passHref>
-            <Button as="a" variant="ghost" aria-label="Home" my={5} w="100%">
-              Home
-            </Button>
-          </NextLink>
-
-          <NextLink href="/about" passHref>
-            <Button as="a" variant="ghost" aria-label="About" my={5} w="100%">
-              About
-            </Button>
-          </NextLink>
-
-          <NextLink href="/contact" passHref>
-            <Button as="a" variant="ghost" aria-label="Contact" my={5} w="100%">
-              Contact
-            </Button>
-          </NextLink>
+          {menuItems.map((item) => (
+            <NextLink key={item.link} href={item.link} passHref>
+              <Button
+                as="a"
+                variant="ghost"
+                aria-label={item.label}
+                my={5}
+                w="100%"
+              >
+                {item.label}
+              </Button>
+            </NextLink>
+          ))}
         </Flex>
       </Flex>
     </Flex>
