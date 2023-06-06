@@ -45,15 +45,17 @@ const InvoiceForm = () => {
   };
 
   return (
-    <Flex justifyContent={"center"} alignItems={"center"} margin={"1.5rem"}>
+    <Flex justifyContent={"center"} alignItems={"center"} bg="#F7FCFF">
       {/* box sized as A4 size  */}
       <Box
-        bg="gray.100"
+        margin={"1.5rem"}
+        bg="#FFFFFF"
         h="fit-content"
         w="60%"
         p={4}
         border={"0.5px"}
         borderRadius={"lg"}
+        boxShadow="1px 1px 4px rgba(171, 171, 171, 0.25), -1px -1px 4px rgba(171, 171, 171, 0.25), 6px 6px 20px rgba(171, 171, 171, 0.1), -6px -6px 20px rgba(171, 171, 171, 0.1)"
       >
         <form onSubmit={handleSubmit}>
           <DetailsSection />
