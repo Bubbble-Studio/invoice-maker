@@ -88,15 +88,15 @@ const ItemsList = () => {
         </div>
       </div>
       <Box overflowX="auto">
-        <Table variant="striped" size="sm">
+        <Table variant={"unstyled"} size="sm" mt={"1.5rem"}>
           <Thead>
-            <Tr>
+            <Tr background={"green.100"} height={"3rem"}>
               <Th width={"10%"}>Sr. No.</Th>
-              <Th width={"25%"}>Description</Th>
+              <Th width={"30%"}>Description</Th>
               <Th width={"15%"}>Qty</Th>
               <Th width={"20%"}>Price ₹</Th>
-              <Th width={"15%"}>Amount ₹</Th>
-              <Th width={"15%"}></Th>
+              <Th width={"25%"}>Amount ₹</Th>
+              <Th width={"5%"}></Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -105,7 +105,8 @@ const ItemsList = () => {
                 <Td>{i + 1}</Td>
                 <Td>
                   <Input
-                    bgColor={"gray.200"}
+                    border={"0.5px solid"}
+                    borderColor={"gray.300"}
                     type="text"
                     name="name"
                     placeholder="Description"
@@ -115,8 +116,8 @@ const ItemsList = () => {
                 </Td>
                 <Td>
                   <NumberInput
-                    bgColor={"gray.200"}
-                    border={"1px solid gray.100"}
+                    border={"0.5px solid"}
+                    borderColor={"gray.300"}
                     borderRadius={"md"}
                     size="md"
                     maxW={"40"}
@@ -131,14 +132,15 @@ const ItemsList = () => {
                   >
                     <NumberInputField />
                     <NumberInputStepper>
-                      <NumberIncrementStepper />
-                      <NumberDecrementStepper />
+                      <NumberIncrementStepper color={"gray.500"} />
+                      <NumberDecrementStepper color={"gray.500"} />
                     </NumberInputStepper>
                   </NumberInput>
                 </Td>
                 <Td>
                   <Input
-                    bgColor={"gray.200"}
+                    border={"0.5px solid"}
+                    borderColor={"gray.300"}
                     type="number"
                     name="price"
                     placeholder="₹"
@@ -149,8 +151,11 @@ const ItemsList = () => {
                 <Td>{item.total.toFixed(2)}</Td>
                 <Td>
                   <Button
-                    colorScheme="red"
-                    size="sm"
+                    borderRadius={"50%"}
+                    width={"1.5rem"}
+                    border={"0.5px dashed"}
+                    size={"sm"}
+                    color={"green.500"}
                     onClick={() => deleteItem(i)}
                   >
                     <MinusIcon />
@@ -162,13 +167,18 @@ const ItemsList = () => {
               <Td colSpan={2}></Td>
               <Flex justifyContent="center" alignItems="center">
                 <Button
+                  width={"100%"}
                   className="add_item-btn"
                   onClick={addItem}
-                  colorScheme="green"
+                  border={"0.5px dashed"}
+                  borderColor={"green.300"}
+                  backgroundColor={"transparent"}
+                  color={"green.500"}
+                  fontSize={"0.8rem"}
                   mt="1rem"
                 >
                   <AddIcon marginRight={"0.5rem"} />
-                  <Text>New Item</Text>
+                  <Text>add another item</Text>
                 </Button>
               </Flex>
             </Tr>
@@ -205,6 +215,7 @@ const ItemsList = () => {
           </Tbody>
         </Table>
       </Box>
+
       <Box className="totalSum" textAlign="end" mt="1rem">
         Total: ₹ {grandTotal}
       </Box>
