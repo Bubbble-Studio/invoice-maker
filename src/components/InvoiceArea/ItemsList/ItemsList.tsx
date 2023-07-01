@@ -15,7 +15,10 @@ import {
   Thead,
   Tr,
   Text,
+  Select,
 } from "@chakra-ui/react";
+
+import styles from "./itemList.module.scss";
 
 import { convertNumberToWords } from "../../../utils/functions";
 
@@ -60,6 +63,30 @@ const ItemsList = () => {
 
   return (
     <Box p={6} maxWidth="inherit" mx="auto">
+      <div className={styles.taxAndCurrencySelect}>
+        <div className={styles.selectBox}>
+          <span>Tax</span>
+          <Select width={"200px"} placeholder="select tax" color={"gray.500"}>
+            <option value="tax">GST IN</option>
+            <option value="tax">Tax</option>
+          </Select>
+        </div>
+
+        <div className={styles.selectBox}>
+          <span>Currency</span>
+          <Select
+            width={"250px"}
+            placeholder="select currency"
+            color={"gray.500"}
+          >
+            <option value="currency">INR ₹</option>
+            <option value="currency">USD $</option>
+            <option value="currency">EURO €</option>
+            <option value="currency">YEN ¥</option>
+            <option value="currency">AU $</option>
+          </Select>
+        </div>
+      </div>
       <Box overflowX="auto">
         <Table variant="striped" size="sm">
           <Thead>
@@ -178,7 +205,6 @@ const ItemsList = () => {
           </Tbody>
         </Table>
       </Box>
-
       <Box className="totalSum" textAlign="end" mt="1rem">
         Total: ₹ {grandTotal}
       </Box>

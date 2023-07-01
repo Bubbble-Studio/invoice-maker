@@ -5,6 +5,7 @@ import ItemsList from "./ItemsList/ItemsList";
 import TermsSection from "./TermsSection/TermsSection";
 import { useInvoiceContext } from "@/utils/contexts/InvoiceContext";
 import { useState } from "react";
+import SectionDivider from "./SectionDivider/SectionDivider";
 
 const InvoiceForm = () => {
   const { details, items, gst, terms, signature } = useInvoiceContext();
@@ -58,14 +59,14 @@ const InvoiceForm = () => {
         boxShadow="1px 1px 4px rgba(171, 171, 171, 0.25), -1px -1px 4px rgba(171, 171, 171, 0.25), 6px 6px 20px rgba(171, 171, 171, 0.1), -6px -6px 20px rgba(171, 171, 171, 0.1)"
       >
         <form onSubmit={handleSubmit}>
-          <DetailsSection />
-          <Divider />
-          <ItemsList />
-          <Divider />
-          <TermsSection />
-          <Divider />
-          <Box textAlign={"center"}>
-            <Button type="submit">Submit</Button>
+          <Box width={"95%"} margin={"0 auto"}>
+            <DetailsSection />
+            <SectionDivider heading="Enter the Items" stepNumber={3} />
+            <ItemsList />
+            <TermsSection />
+            <Box textAlign={"center"}>
+              <Button type="submit">Submit</Button>
+            </Box>
           </Box>
         </form>
       </Box>

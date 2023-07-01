@@ -1,8 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import Navbar from "../components/Navbar/Navbar";
 import InvoiceArea from "../components/InvoiceArea/InvoiceArea";
-import { Heading, Text, Box, Center, Flex, Divider } from "@chakra-ui/react";
+import { Divider } from "@chakra-ui/react";
 import styles from "./index.module.scss";
 
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
               <h3>Invoice Maker</h3>
             </div>
           </div>
-
           <div className={styles.headerContent}>
             <p>
               Simplify your billing process with our user-friendly invoice
@@ -30,9 +28,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <Divider />
         <InvoiceArea />
-        <Divider />
       </main>
     </>
   );
